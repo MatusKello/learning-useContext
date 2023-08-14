@@ -1,11 +1,11 @@
-import Movies from "./Movies"
+import Movies from './Movies';
 
 const MovieBox = () => {
   return (
     <div>
-      <Movies/>
+      <Movies />
     </div>
-  )
-}
+  );
+};
 
-export default MovieBox
+export default MovieBox;

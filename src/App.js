@@ -1,12 +1,23 @@
-import data from './data'
-import MovieBox from './components/MovieBox'
+import data from './data';
+import MovieBox from './components/MovieBox';
+import MoviesContext from './components/MoviesContext';
+import { useState } from 'react';
 
 const App = () => {
-  return (
-    <div>
-      <MovieBox/>
-    </div>
-  )
-}
+  const [movies, setMovies] = useState(data);
 
-export default App
+  const deleteMovie = (movieId) => {
+    const newMovieList = movies.filter((oneMovie) => {
+      return oneMovie.id !== movieId;
+    });
+    setMovies(newMovieList);
+  };
+
+  return (
+    <MoviesContext.Provider value={{ deleteMovie, movies }}>
+      <MovieBox />
+    </MoviesContext.Provider>
+  );
+};
+
+export default App;

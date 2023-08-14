@@ -1,10 +1,23 @@
+import MoviesContext from './MoviesContext';
+import { useContext } from 'react';
 
 const Movies = () => {
+  const { deleteMovie, movies } = useContext(MoviesContext);
+
   return (
     <div>
-      
-    </div>
-  )
-}
+      {movies.map((oneMovie) => {
+        const { id, name } = oneMovie;
 
-export default Movies
+        return (
+          <div key={id}>
+            <p>{name}</p>
+            <button onClick={() => deleteMovie(id)}>Delete</button>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+export default Movies;
