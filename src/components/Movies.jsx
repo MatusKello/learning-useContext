@@ -6,14 +6,30 @@ const Movies = () => {
   const { deleteMovie, movies } = useContext(MoviesContext);
 
   return (
-    <Card>
+    <Card
+      sx={{
+        margin: 'auto',
+        marginTop: '1rem',
+        width: '50rem',
+      }}
+    >
       {movies.map((oneMovie) => {
         const { id, name } = oneMovie;
 
         return (
-          <Box key={id}>
+          <Box
+            key={id}
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              padding: '1rem',
+            }}
+          >
             <Typography>{name}</Typography>
-            <Button onClick={() => deleteMovie(id)}>Delete</Button>
+            <Button variant='contained' onClick={() => deleteMovie(id)}>
+              Delete
+            </Button>
           </Box>
         );
       })}
