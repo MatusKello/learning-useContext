@@ -1,22 +1,23 @@
 import MoviesContext from './MoviesContext';
 import { useContext } from 'react';
+import { Card, Button, Typography, Box } from '@mui/material';
 
 const Movies = () => {
   const { deleteMovie, movies } = useContext(MoviesContext);
 
   return (
-    <div>
+    <Card>
       {movies.map((oneMovie) => {
         const { id, name } = oneMovie;
 
         return (
-          <div key={id}>
-            <p>{name}</p>
-            <button onClick={() => deleteMovie(id)}>Delete</button>
-          </div>
+          <Box key={id}>
+            <Typography>{name}</Typography>
+            <Button onClick={() => deleteMovie(id)}>Delete</Button>
+          </Box>
         );
       })}
-    </div>
+    </Card>
   );
 };
 

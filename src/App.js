@@ -2,6 +2,7 @@ import data from './data';
 import MovieBox from './components/MovieBox';
 import MoviesContext from './components/MoviesContext';
 import { useState } from 'react';
+import { Box } from '@mui/material';
 
 const App = () => {
   const [movies, setMovies] = useState(data);
@@ -14,9 +15,11 @@ const App = () => {
   };
 
   return (
-    <MoviesContext.Provider value={{ deleteMovie, movies }}>
-      <MovieBox />
-    </MoviesContext.Provider>
+    <Box>
+      <MoviesContext.Provider value={{ deleteMovie, movies }}>
+        <MovieBox />
+      </MoviesContext.Provider>
+    </Box>
   );
 };
 
